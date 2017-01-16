@@ -217,26 +217,6 @@ def kids_game(names):
     good solutions here will definitely require a dictionary.
     """
 
-    """
-
-    create dictionary with names
-    first word is always first word in names    
-    get last letter of first word 
-
-    for loop
-
-    find first word that starts with letter 
-
-    word is new word 
-
-    start over 
-
- 
-
-    names_dict = {'name': ([list of characters], 'available')}
-
-    """
-
     names_dict = {}
 
     # starting from names[1] because don't want names[0] to be appended to kids_game_results later on
