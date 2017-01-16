@@ -53,6 +53,7 @@ Part 1: Discussion
 """Part 2 through 5"""
 
 class Student(object):
+  """Defining Student class with optional last_name, address, and score parameters."""
 
     def __init__(self, first_name, last_name=None, address=None, score=0):
         self.name = first_name
@@ -61,12 +62,17 @@ class Student(object):
         self.score = score
 
 class Question(object):
+  """Defining a Question class to be instantiated with every new question added
+     to the exam."""
 
     def __init__(self, question, correct_answer):
         self.question = question
         self.correct_answer = correct_answer
 
     def ask_and_evaluate(self):
+      """Class method gives the student questions and returns True if correct 
+         and False if incorrect."""
+
         print self.question 
         student_answer = raw_input('> ')
         
@@ -76,6 +82,8 @@ class Question(object):
             return False
 
 class Exam(object):
+  """Defining Exam object with methods to add questions to exam and 
+  administer exam to return score."""
 
     def __init__(self, name):
         self.name = name
@@ -93,11 +101,13 @@ class Exam(object):
                 score += 1
 
         print 'Your score is...'
-        # python thinks 2 divided by 3 is 0 so multiplying by 100 first
-        percentage_score = (score * 100) / len(self.questions)
+        percentage_score = (float(score) / float(len(self.questions)) * 100
         print percentage_score
 
+
 class Quiz(Exam):
+  """Defining Quiz object from Exam parent class. Returns True for passing
+  grade and False for failing grade."""
 
     def administer(self):
         percentage_score = super(Quiz, self).administer()
@@ -109,11 +119,14 @@ class Quiz(Exam):
 
 
 def take_test(exam, student):
+  """Allow user to take test and return score.""" 
+
     score = exam.administer(student)
     return score
 
 
 def example(exam, student):
+  """Create example case to exam questions and call take_test() to administer exam."""
     exam = Exam(exam)
     student = Student(student)
 
