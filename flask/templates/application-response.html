@@ -1,11 +1,9 @@
-<!doctype html>
-<html>
-<head>
-    <title>Application Response</title>
-</head>
-<body>
+{% extends 'base.html' %}
+    {% block title %} Applied Successfully! {% endblock %}
 
-<!-- fill this in -->
 
-</body>
-</html>
+{% block content %}
+
+Thank you, {{ firstname }} {{ lastname }}, for applying to be a {{ jobtitle }} at Ubermelon. Your minimum salary requirement is {{ "${:.2f}".format(salaryreq|float) }}. 
+
+{% endblock %}

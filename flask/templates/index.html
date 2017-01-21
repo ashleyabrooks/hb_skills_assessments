@@ -1,11 +1,8 @@
-<!doctype html>
-<html>
-<head>
-    <title>Sample Home Page</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-<h1>This is the sample home page.</h1>
+{% block title %} Ubermelon Home Page {% endblock %}
 
-</body>
-</html>
+{% block content %}
+<h1>Welcome to Ubermelon</h1>
+<a href="/application-form">Join our team!</a>
+{% endblock %}
