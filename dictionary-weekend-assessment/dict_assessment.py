@@ -219,7 +219,7 @@ def kids_game(names):
 
     names_dict = {}
 
-    # starting from names[1] because don't want names[0] to be appended to kids_game_results later on
+    # starting from names[1] because don't want names[0] to be appended to kids_game_results later
     for name in names[1:]: 
         if name[0] in names_dict: # name[0] is first letter of name
             names_dict[name[0]].append(name)
