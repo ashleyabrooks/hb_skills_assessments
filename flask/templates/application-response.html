@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
-    {% block title %} Applied Successfully! {% endblock %}
 
+{% block title %} Applied Successfully! {% endblock %}
 
 {% block content %}
 
-Thank you, {{ firstname }} {{ lastname }}, for applying to be a {{ jobtitle }} at Ubermelon. Your minimum salary requirement is {{ "${:.2f}".format(salaryreq|float) }}. 
+<div>
+Thank you, {{ firstname }} {{ lastname }}, for applying to be a {{ jobtitle }} at Ubermelon! Your minimum salary requirement is {{ "${0:,.2f}".format(salaryreq|float) }}. 
+</div>
 
 {% endblock %}
