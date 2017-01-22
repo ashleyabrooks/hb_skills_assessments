@@ -1,7 +1,3 @@
-div {
-    font-family: sans-serif;
-}
-
 form input {
     background-color: yellow;
 }
@@ -10,16 +6,42 @@ form input {
     font-weight: bold;
 }
 
-div #instructions{
-    border-style: solid;
+.web-page-header {
+    border-style: dashed;
     border-color: black;
-    border-width: 2px;
+    border-width: 10px;
+    padding: 15px;
+    margin: 5px;
+    background-color: #ffc0cb;
+}
+
+#instructions h1 {
+    text-shadow: 2px 2px #ffffff;
+}
+
+#homepage {
+    text-align: center;
+    border-width: 10px;
+    border-style: dashed;
+    border-color: dark-pink;
     padding: 10px;
     margin: 5px;
+    background-color: #98fb98;
+}
+
+#homepage h1 {
+    color: pink;
+    text-shadow: 2px 2px #000000;
 }
 
 form {
     margin: 5px;
     padding: 10px;
+}
+
+html {
+    background-color: #98fb98;
+    font-family: sans-serif;    
+
 }
 

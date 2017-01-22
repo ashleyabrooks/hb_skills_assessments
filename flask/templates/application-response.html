@@ -4,8 +4,8 @@
 
 {% block content %}
 
-<div>
-Thank you, {{ firstname }} {{ lastname }}, for applying to be a {{ jobtitle }} at Ubermelon! Your minimum salary requirement is {{ "${0:,.2f}".format(salaryreq|float) }}. 
+<div class="web-page-header">
+<h1>Thank you, {{ firstname }} {{ lastname }}, for applying to be a {{ jobtitle }} at Ubermelon! Your minimum salary requirement is {{ "${0:,.2f}".format(salaryreq|float) }}. </h1>
 </div>
 
 {% endblock %}
