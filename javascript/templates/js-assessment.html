@@ -124,7 +124,7 @@
     alert(newMsg);
   
   }
-  
+
   var button = document.getElementById('reverse-string-button');
   button.addEventListener('click', reverseString);
 
@@ -141,7 +141,7 @@
   </div>
 </div>
 
-
+<script src="https://code.jquery.com/jquery.js"></script>
 
 <h3>Down With Cats!</h3>
 <p>
@@ -158,7 +158,11 @@
 
 <script>
   "use strict";
-  // put your code here
+
+  $("#kittenz-rule").on("dblclick", function() {
+    $("#kittenz-rule").attr("src", "http://images.complex.com/complex/image/upload/c_limit,w_680/f_auto,fl_lossy,pg_1,q_auto/jjcfcz276hxaocuvw7u8.jpg");
+  });
+
 </script>
 
 <div class="hint">
@@ -174,7 +178,7 @@
   Make the classic "guess-a-number-between-1-and-100" in JavaScript.
 </p>
 <p>
-  The game should start when the user presses the play button. The funtion should first disable the button. The function should then pick a random integer from 1 to 100. Use the div with id 'number-guessing-msg' to ask the user to guess a number. This div will also display whether the guess was too high or too low. Once the user guesses the right number, three things should happen: first, the div should congratulate the player; second, the form should be disabled; third, the play button should be re-enabled.
+  The game should start when the user presses the play button. The function should first disable the button. The function should then pick a random integer from 1 to 100. Use the div with id 'number-guessing-msg' to ask the user to guess a number. This div will also display whether the guess was too high or too low. Once the user guesses the right number, three things should happen: first, the div should congratulate the player; second, the form should be disabled; third, the play button should be re-enabled.
 </p>
 
 <fieldset>
@@ -189,7 +193,63 @@
 
 <script>
   "use strict";
-  // put your code here
+
+  var message = $("#number-guessing-msg"); 
+  var userGuess = $("#number-guessed").val();
+  var playButton = $("#play-guessing-game");
+  var guessButton = $("#try-this-number");
+
+  
+  $("#play-guessing-game").on("click", initGuessingGame);
+
+  function initGuessingGame () {
+    playButton.attr("disabled", true);
+    guessButton.attr("disabled", false);
+    $("#number-guessed").attr("disabled", false);
+
+    var correctNum = Math.random() * (100 - 1) + 1;
+    console.log(correctNum);
+
+    playGuessingGame(correctNum);
+
+  }
+
+  function playGuessingGame (correctNum) {
+    console.log("playGuessingGame function is working!")
+    message.html("Guess a number between 1 and 100!")
+    
+    guessButton.click(function (evt) {
+      evt.preventDefault();
+      guessingGameFunctionality(correctNum);
+    })
+  }
+
+  function guessingGameFunctionality (correctNum) {
+     // First checking to make sure userGuess is within range 1-100
+     console.log("guessingGameFunctionality function is working!")
+
+    while (userGuess !== correctNum) {
+      if (userGuess <= 100 && userGuess >=1) {
+        if (userGuess > correctNum) {
+          message.html("Your guess is too high! Try again.");
+        
+        } else if (userGuess < correctNum) {
+          message.html("Your guess is too low! Try again.");
+        }
+
+      } else {
+        message.html("Please choose a number between 1 and 100.");
+      }}
+
+    if (userGuess == correctNum) {
+          message.html("Congratulations! You guessed the correct number.")
+          playButton.attr("disabled", false);
+          guessButton.attr("disabled", true);
+          userGuess.attr("disabled", true);
+    }}
+
+  
+
 </script>
 
 
