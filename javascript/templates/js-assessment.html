@@ -125,8 +125,8 @@
   
   }
 
-  var button = document.getElementById('reverse-string-button');
-  button.addEventListener('click', reverseString);
+  var reverseButton = document.getElementById('reverse-string-button');
+  reverseButton.addEventListener('click', reverseString);
 
 </script>
 
@@ -194,8 +194,8 @@
 <script>
   "use strict";
 
-  var message = $("#number-guessing-msg"); 
-  var userGuess = $("#number-guessed").val();
+  // Binding a few variables to jQuery selectors for ease of reading later on
+  var divMessage = $("#number-guessing-msg"); 
   var playButton = $("#play-guessing-game");
   var guessButton = $("#try-this-number");
 
@@ -207,48 +207,38 @@
     guessButton.attr("disabled", false);
     $("#number-guessed").attr("disabled", false);
 
-    var correctNum = Math.random() * (100 - 1) + 1;
-    console.log(correctNum);
+    var correctNum = Math.floor((Math.random() * (100 - 1) + 1));
 
     playGuessingGame(correctNum);
-
   }
 
   function playGuessingGame (correctNum) {
-    console.log("playGuessingGame function is working!")
-    message.html("Guess a number between 1 and 100!")
+    var userGuess = $("#number-guessed").val();
+
+    divMessage.html("Guess a number between 1 and 100!")
     
+    // Prevent button from submitting form and rerouting user to incorrect page
     guessButton.click(function (evt) {
       evt.preventDefault();
       guessingGameFunctionality(correctNum);
     })
-  }
 
-  function guessingGameFunctionality (correctNum) {
-     // First checking to make sure userGuess is within range 1-100
-     console.log("guessingGameFunctionality function is working!")
-
-    while (userGuess !== correctNum) {
-      if (userGuess <= 100 && userGuess >=1) {
-        if (userGuess > correctNum) {
-          message.html("Your guess is too high! Try again.");
-        
+    // First checking to make sure userGuess is within range 1-100
+    // Then checking if userGuess === correctNum
+    if (userGuess <= 100 && userGuess >=1) {
+        if (userGuess === correctNum) {
+            divMessage.html("Congratulations! You guessed the correct number.")
+            playButton.attr("disabled", false);
+            guessButton.attr("disabled", true);
+            $("#number-guessed").attr("disabled", true);
+        } else if (userGuess > correctNum) {
+            divMessage.html("Your guess is too high! Try again.");
         } else if (userGuess < correctNum) {
-          message.html("Your guess is too low! Try again.");
+            divMessage.html("Your guess is too low! Try again.");
         }
-
-      } else {
-        message.html("Please choose a number between 1 and 100.");
-      }}
-
-    if (userGuess == correctNum) {
-          message.html("Congratulations! You guessed the correct number.")
-          playButton.attr("disabled", false);
-          guessButton.attr("disabled", true);
-          userGuess.attr("disabled", true);
-    }}
-
-  
+    } else {
+      divMessage.html("Please choose a number between 1 and 100.");
+      }} 
 
 </script>
 
@@ -295,7 +285,7 @@
 
   // NOTE: DO NOT CHANGE THE CODE OF THIS FUNCTION
   function showTRexResults(results) {
-
+    console.log("showTrexresults function is working");
     //get the reaction string out of the results object
     var attackResult = results.reaction;
     var tRexURL = results.img;
@@ -314,7 +304,16 @@
     $("#t-rex-img").append(tRexPhoto);
   }
 
-  // put your code here
+  function sendTRexVictim(evt) {
+    console.log("initializing")
+    evt.preventDefault();
+    console.log("prevented default");
+    var victim = $('#victim-name').val();
+    $.post('/t-rex-attack.json', victim, showTRexResults);
+    console.log("Sent AJAX request");
+  }
+
+  $('#Attack').on('submit', sendTRexVictim);
 
 </script>
 
