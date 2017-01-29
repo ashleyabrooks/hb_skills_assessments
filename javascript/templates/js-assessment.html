@@ -86,6 +86,7 @@
   faveColorForm.addEventListener('submit', preventFormSubmission);
 
 </script>
+                        
 
 <div class="hint">
   <div>
@@ -160,7 +161,7 @@
   "use strict";
 
   $("#kittenz-rule").on("dblclick", function() {
-    $("#kittenz-rule").attr("src", "http://images.complex.com/complex/image/upload/c_limit,w_680/f_auto,fl_lossy,pg_1,q_auto/jjcfcz276hxaocuvw7u8.jpg");
+    $("#kittenz-rule").attr("src", "http://bit.ly/2kCoM95");
   });
 
 </script>
@@ -285,7 +286,6 @@
 
   // NOTE: DO NOT CHANGE THE CODE OF THIS FUNCTION
   function showTRexResults(results) {
-    console.log("showTrexresults function is working");
     //get the reaction string out of the results object
     var attackResult = results.reaction;
     var tRexURL = results.img;
@@ -305,15 +305,12 @@
   }
 
   function sendTRexVictim(evt) {
-    console.log("initializing")
     evt.preventDefault();
-    console.log("prevented default");
-    var victim = $('#victim-name').val();
-    $.post('/t-rex-attack.json', victim, showTRexResults);
+    $.post('/t-rex-attack.json', $('#victim-name'), showTRexResults);
     console.log("Sent AJAX request");
   }
 
-  $('#Attack').on('submit', sendTRexVictim);
+  $('#Attack').on('click', sendTRexVictim);
 
 </script>
 
