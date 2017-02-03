@@ -201,7 +201,7 @@
   var guessButton = $("#try-this-number");
 
   
-  $("#play-guessing-game").on("click", initGuessingGame);
+ 
 
   function initGuessingGame () {
     playButton.attr("disabled", true);
@@ -209,25 +209,23 @@
     $("#number-guessed").attr("disabled", false);
 
     var correctNum = Math.floor((Math.random() * (100 - 1) + 1));
+    console.log(correctNum)
 
-    playGuessingGame(correctNum);
+    guessButton.click(function (evt) {
+      evt.preventDefault();
+      playGuessingGame(correctNum);
+      })
   }
 
   function playGuessingGame (correctNum) {
     var userGuess = $("#number-guessed").val();
 
     divMessage.html("Guess a number between 1 and 100!")
-    
-    // Prevent button from submitting form and rerouting user to incorrect page
-    guessButton.click(function (evt) {
-      evt.preventDefault();
-      guessingGameFunctionality(correctNum);
-    })
 
     // First checking to make sure userGuess is within range 1-100
     // Then checking if userGuess === correctNum
     if (userGuess <= 100 && userGuess >=1) {
-        if (userGuess === correctNum) {
+        if (userGuess == correctNum) {
             divMessage.html("Congratulations! You guessed the correct number.")
             playButton.attr("disabled", false);
             guessButton.attr("disabled", true);
@@ -240,6 +238,13 @@
     } else {
       divMessage.html("Please choose a number between 1 and 100.");
       }} 
+
+  $("#play-guessing-game").on("click", initGuessingGame);
+
+  
+
+  // Prevent button from submitting form and rerouting user to incorrect page
+  
 
 </script>
 
