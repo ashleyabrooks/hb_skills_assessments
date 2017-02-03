@@ -17,7 +17,7 @@ def index():
 def show_application_form():
     """Return HTML for application form using POST method."""
 
-    jobtitles = ['Software Engineer', 'QA Engineer', 'Product MAanager']
+    jobtitles = ['Software Engineer', 'QA Engineer', 'Product Manager']
 
     return render_template("application-form.html", jobtitles=jobtitles)
 
