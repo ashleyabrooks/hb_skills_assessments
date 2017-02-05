@@ -90,14 +90,13 @@ def get_brands_summary():
     """Prints out each brand name and each model name with year for that brand
     using only ONE database query."""
 
-    # Should this be printing out the brand year or the model year?
-
     brands_summary = db.session.query(Brand.name, 
                                       Model.name, 
                                       Model.year).join(Model).all()
 
     brands_and_models = {}
 
+    # unpack brands_summary and add data to dict brands_and_models
     for brand in brands_summary:
         brand_name, model_name, model_year = brand
         
@@ -106,6 +105,7 @@ def get_brands_summary():
         else:
             brands_and_models[brand_name] = [(model_name, model_year)]
 
+    # print brand once followed by list of models/years
     for brand, models_years in brands_and_models.items():
         print '\nBRAND:' + brand
         for model_year in models_years:
