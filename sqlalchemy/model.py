@@ -23,6 +23,8 @@ class Brand(db.Model):
     headquarters = db.Column(db.String(100), nullable=False)
     discontinued = db.Column(db.Integer, nullable=True)
 
+    model = db.relationship('Model')
+
     def __repr__(self):
         """Provide helpful representation when object is printed."""
 
@@ -37,6 +39,8 @@ class Model(db.Model):
     year = db.Column(db.Integer, nullable=False)
     brand_id = db.Column(db.String(3), db.ForeignKey('brands.brand_id'), nullable=False)
     name = db.Column(db.String(30), nullable=False)
+
+    brand = db.relationship('Brand')
 
     def __repr__(self):
         """Provide helpful representation when object is printed."""
