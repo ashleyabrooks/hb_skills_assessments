@@ -99,7 +99,8 @@ class Tree(object):
         to_search = [self.root]
 
         while to_search:
-            current = to_search.pop(0)
+            # pull from beginning of to_search to utilize queue functionality
+            current = to_search.pop(0) 
 
             if current.data == data:
                 return current
