@@ -3,7 +3,7 @@ def string_compare(s1, s2):
 
     Put runtime here:
     -----------------
-    [               ]
+    [ O(n) where n is number of characters in the string ]
 
 
     """
@@ -23,7 +23,7 @@ def has_exotic_animals(animals):
 
     Put runtime here:
     -----------------
-    [               ]
+    [ O(n) where n is number of animals in the list ]
 
     """
 
@@ -38,7 +38,7 @@ def sum_zero_1(numbers):
 
     Put runtime here:
     -----------------
-    [               ]
+    [ O(n2) because line 52 is an implicit for loop ]
 
     """
 
@@ -60,7 +60,7 @@ def sum_zero_2(numbers):
 
     Put runtime here:
     -----------------
-    [               ]
+    [ O(n2) because of the nested for loop ]
 
     """
 
@@ -80,7 +80,7 @@ def sum_zero_3(numbers):
 
     Put runtime here:
     -----------------
-    [               ]
+    [ O(n3)? There are two for loops and line 91 requires another search through result list]
 
     """
 
