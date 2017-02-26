@@ -39,10 +39,10 @@ LINKED LISTS
 
 1. Given the linked list below, which are the nodes? What is the data for each node? Where is the head? Where is the tail? (Please be as specific as possible — exactly which parts of the diagram correspond to each part? Arrows? Boxes? Text?)
 
-    - Nodes: The boxes that contain the words "Apple", "Berry", "Cherry"
+    - Nodes: The boxes that contain the words ("Apple", "Berry", "Cherry") along with the arrows that represent "next"
     - Data for each node: The words in the node boxes. "Apple", "Berry", "Cherry"
-    - Head: The "Apple" node
-    - Tail: The node that contains "None"
+    - Head: The node that starts the list - in this case, the "Apple" node
+    - Tail: The node that ends the list - in this case contains "None"
 
 2. What’s the difference between doubly- and singly-linked lists?
 
