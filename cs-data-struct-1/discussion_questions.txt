@@ -1,0 +1,26 @@
+RUNTIME
+
+1. When calculating the Big O notation for a particular algorithm, it’s necessary to consider the length of time it takes for the algorithm to run as the algorithm’s workload approaches infinity. You can think of the workload as the number of tasks required to complete a job. What determines the workload of figuring out whether your box of animal crackers contains an elephant?
+
+    The workload of figuring out whether a box of animal crackers contains an elephant is determined by the number of crackers in the box. The runtime is O(n) where n is the number of crackers. As the number of crackers in the box increases, the runtime increases linearly. 
+
+
+2. Order the following runtimes in descending order of efficiency (that is, fastest runtimes first, slowest last) as n approaches infinity:
+    O(1)
+    O(log n)
+    O(n)
+    O(n log n)
+    O(n2)
+    O(2n)
+
+
+STACKS AND QUEUES
+
+1. In the following cases, would a stack or queue be a more appropriate data structure?
+        1. The process of loading and unloading pallets onto a flatbed truck
+        2. Putting bottle caps on bottles of beer as they roll down an assembly line
+        3. Calculating the solution to this mathematical expression: 2 + (7 * 4) - (3 / 2)
+
+2. Describe two more situations where a queue would be an appropriate data structure.
+
+3. Describe two more situations where a stack would be an appropriate data structure.
