@@ -26,9 +26,12 @@ class Node(object):
             2
         """
 
-        # FIXME
+        num_children = 0
 
-        pass
+        for child in self.children:
+            num_children += 1
+
+        return num_children
 
 
 class Tree(object):
@@ -93,8 +96,15 @@ class Tree(object):
 
         """
 
-        # FIXME
-        pass
+        to_search = [self.root]
+
+        while to_search:
+            current = to_search.pop(0)
+
+            if current.data == data:
+                return current
+
+            to_search.extend(current.children)
 
 if __name__ == "__main__":
     import doctest
