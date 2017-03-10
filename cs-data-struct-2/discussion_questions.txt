@@ -1,0 +1,30 @@
+***** Recursion *****
+
+1. In your own words, what is recursion?
+    Recursion happens when a function calls itself. 
+
+2. Why is it necessary to have a base case?
+    Base cases are necessary so the function doesn't continue to recurse infinitely.
+
+
+***** Graphs *****
+
+1. What is a graph?
+    A graph is a collection of nodes that are linked in loops rather than a linear direction like a linked list or in a tree.  
+
+2. How is a graph different from a tree?
+    Graphs are different from trees because they have loops. A node can have more than one parent, whereas in a tree a node can only have one parent or less. 
+
+3. Give an example of something that would be good to model with a graph.
+    Representing connections between friends
+
+
+***** Sorting *****
+
+1. Describe in words how the Bubble Sort algorithm works.
+    The bubble sort algorithm works by 'bubbling' up the largest numbers to the end of a list. The algorithm repeats until all of the items in the list no longer need to bubble up to the top. 
+
+2. Describe in words how the Merge Sort algorithm works.
+    The merge sort algorithm starts by recursively dividing a list in half until it reaches the base case of 1 item. After reaching the base case, the algorithm is able to merge two sorted lists of single items because a list of one item is inherently sorted. Once the base case is reached, the algorithm stops recursing and begins to merge the lists together until the original sized list is sorted then returned. 
+
+3. Describe in words how the Quick Sort algorithm works.
